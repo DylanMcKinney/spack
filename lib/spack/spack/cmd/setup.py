@@ -65,7 +65,7 @@ def spack_transitive_include_path():
     )
 
 
-def write_spconfig(package,dirty):
+def write_spconfig(package, dirty):
     # Set-up the environment
     spack.build_environment.setup_package(package, dirty)
 
