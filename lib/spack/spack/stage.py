@@ -665,7 +665,8 @@ class DIYStage(object):
     def destroy(self):
         # No need to destroy DIY stage.
         pass
-
+    def create(self):
+        pass
     def cache_local(self):
         tty.msg("Sources for DIY stages are not cached")
 
