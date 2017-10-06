@@ -32,3 +32,14 @@ class Cnpy(CMakePackage):
     url      = "https://github.com/rogersce/cnpy"
 
     version('master', git='https://github.com/rogersce/cnpy.git', branch="master")
+    depends_on('zlib')
+    def configure_args(self):
+       args = [
+           # not honored, see
+           #   https://sourceforge.net/p/libpng/bugs/210/#33f1
+           # '--with-zlib=' + self.spec['zlib'].prefix,
+           'CFLAGS=-I{0}'.format(self.spec['zlib'].prefix.include),
+           'LDFLAGS=-L{0}'.format(self.spec['zlib'].prefix.lib)
+       ]
+    return args
+        
