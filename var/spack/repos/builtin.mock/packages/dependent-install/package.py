@@ -25,20 +25,15 @@
 from spack import *
 
 
-class RTibble(RPackage):
-    """Provides a 'tbl_df' class that offers better checking and printing
-    capabilities than traditional data frames."""
+class DependentInstall(Package):
+    """Dependent which has a working install method"""
 
-    homepage = "https://github.com/tidyverse/tibble"
-    url      = "https://cran.rstudio.com/src/contrib/tibble_1.3.4.tar.gz"
-    list_url = homepage
-    version('1.3.4', '298e81546f999fb0968625698511b8d3')
-    version('1.2', 'bdbc3d67aa16860741add6d6ec20ea13')
-    version('1.1', '2fe9f806109d0b7fadafb1ffafea4cb8')
+    homepage = "http://www.example.com"
+    url      = "http://www.example.com/a-1.0.tar.gz"
 
-    depends_on('r@3.1.2:')
+    version('1.0', '0123456789abcdef0123456789abcdef')
 
-    depends_on('r-assertthat', type=('build', 'run'))
-    depends_on('r-lazyeval@0.1.10:', type=('build', 'run'), when='@:1.3.0')
-    depends_on('r-rcpp', type=('build', 'run'))
-    depends_on('r-rlang', type=('build', 'run'), when='@1.3.1:')
+    depends_on('dependency-install')
+
+    def install(self, spec, prefix):
+        touch(join_path(prefix, 'an_installation_file'))
