@@ -32,7 +32,7 @@ class Cnpy(CMakePackage):
     url      = "https://github.com/rogersce/cnpy"
 
     version('master', git='https://github.com/rogersce/cnpy.git', branch="master")
-    depends_on('zlib')
+    #depends_on('zlib')
     def configure_args(self):
         args = [
             # not honored, see
