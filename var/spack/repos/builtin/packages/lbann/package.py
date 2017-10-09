@@ -86,3 +86,17 @@ class Lbann(CMakePackage):
                 spec['opencv'].prefix)])
 
         return args
+
+    def configure_args(self):
+        args = [
+            # not honored, see
+            #   https://sourceforge.net/p/libpng/bugs/210/#33f1
+            # '--with-zlib=' + self.spec['zlib'].prefix,
+            'CFLAGS=-I{0}'.format(self.spec['zlib'].prefix.include),
+            'LDFLAGS=-L{0}'.format(self.spec['zlib'].prefix.lib)
+        ]
+        args.extend(['CFLAGS=-I{0}'.format(self.spec['hwloc'].prefix.include),
+            'LDFLAGS=-L{0}'.format(self.spec['hwloc'].prefix.lib)
+        ])
+        return args    
+    
