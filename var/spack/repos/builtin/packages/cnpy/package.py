@@ -43,6 +43,6 @@ class Cnpy(CMakePackage):
             'LDFLAGS=-L{0}'.format(self.spec['zlib'].prefix.lib, self.spec['zip'].prefix.lib),
         ]
         configure_args.extend(['CFLAGS=-I{0}'.format(self.spec['zip'].prefix.include)])
-        configure_args.extend(['CFLAGS=-L{0}'.format(self.spec['zip'].prefix.lib)])
+        configure_args.extend(['LDFLAGS=-L{0}'.format(self.spec['zip'].prefix.lib)])
         return args
         
