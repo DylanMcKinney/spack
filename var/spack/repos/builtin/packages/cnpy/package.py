@@ -32,8 +32,8 @@ class Cnpy(CMakePackage):
     url      = "https://github.com/rogersce/cnpy"
 
     version('master', git='https://github.com/rogersce/cnpy.git', branch="master")
+    version('works', 'b39d58d3640f77c043bfe92591afeafdd82e78db')
     depends_on('zlib')
-    depends_on('zip')
     def configure_args(self):
         args = [
             # not honored, see
@@ -41,8 +41,6 @@ class Cnpy(CMakePackage):
             # '--with-zlib=' + self.spec['zlib'].prefix,
             'CFLAGS=-I{0}'.format(self.spec['zlib'].prefix.include),
             'LDFLAGS=-L{0}'.format(self.spec['zlib'].prefix.lib),
-            'CFLAGS=-I{0}'.format(self.spec['zip'].prefix.include),
-            'LDFLAGS=-L{0}'.format(self.spec['zip'].prefix.lib)
         ]
         return args
         
