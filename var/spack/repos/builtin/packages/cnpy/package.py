@@ -39,8 +39,8 @@ class Cnpy(CMakePackage):
             # not honored, see
             #   https://sourceforge.net/p/libpng/bugs/210/#33f1
             # '--with-zlib=' + self.spec['zlib'].prefix,
-            'CFLAGS=-I{0}'.format(self.spec['zlib'].prefix.include, self.spec['zip'].prefix.include),
-            'LDFLAGS=-L{0}'.format(self.spec['zlib'].prefix.lib, self.spec['zip'].prefix.lib),
+            'CFLAGS=-I{0}'.format(self.spec['zlib'].prefix.include),
+            'LDFLAGS=-L{0}'.format(self.spec['zlib'].prefix.lib),
         ]
         configure_args.extend(['CFLAGS=-I{0}'.format(self.spec['zip'].prefix.include)])
         configure_args.extend(['LDFLAGS=-L{0}'.format(self.spec['zip'].prefix.lib)])
