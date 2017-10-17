@@ -42,7 +42,7 @@ class Cnpy(CMakePackage):
             'CFLAGS=-I{0}'.format(self.spec['zlib'].prefix.include),
             'LDFLAGS=-L{0}'.format(self.spec['zlib'].prefix.lib)
         ]
-        configure_args.extend(['CFLAGS=-I{0}'.format(self.spec['zip'].prefix.include)])
-        configure_args.extend(['LDFLAGS=-L{0}'.format(self.spec['zip'].prefix.lib)])
+        args.extend(['CFLAGS=-I{0}'.format(self.spec['zip'].prefix.include)])
+        args.extend(['LDFLAGS=-L{0}'.format(self.spec['zip'].prefix.lib)])
         return args
         
